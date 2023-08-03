@@ -22,3 +22,13 @@ export const checkWinner = (boardToCheck) => {
 export const checkEndGame = (boardToCheck) =>{
     return boardToCheck.every(square => square !== null)
 }
+
+export const saveGameFromStorage = ({board, turn}) => {
+  window.localStorage.setItem('board', JSON.stringify(board))
+  window.localStorage.setItem('turn', turn)
+}
+
+export const resetGameFromStorage = () => {
+  window.localStorage.removeItem('board')
+  window.localStorage.removeItem('turn')
+}
